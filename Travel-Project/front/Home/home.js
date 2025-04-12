@@ -81,7 +81,56 @@ fetch('/api/test')
     })
     .catch(error => console.error('Error:', error));
 
-document.getElementById('chat-icon').addEventListener('click', () => {
-    const chatbox = document.getElementById('chatbox-container');
-    chatbox.classList.toggle('hidden');
-});
+// document.getElementById('chat-icon').addEventListener('click', () => {
+//     const chatbox = document.getElementById('chatbox-container');
+//     chatbox.classList.toggle('hidden');
+// });
+// Toggle chatbox visibility
+function toggleChatbox() {
+    const chatbox = document.getElementById("chatbox-container");
+    chatbox.classList.toggle("hidden");
+}
+
+// Send chat message
+function sendChatMessage() {
+    const input = document.getElementById("chatbox-message-input");
+    const message = input.value.trim();
+    if (!message) return;
+
+    addMessageToChat("You", message);
+    respondToQuery(message);
+    input.value = "";
+}
+
+// Add messages to chat window
+function addMessageToChat(sender, message) {
+    const messagesDiv = document.getElementById("chatbox-messages");
+    const messageDiv = document.createElement("div");
+    messageDiv.classList.add("chat-message");
+    messageDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
+    messagesDiv.appendChild(messageDiv);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+
+// Basic chatbot logic
+function respondToQuery(query) {
+    let response;
+
+    const lowerQuery = query.toLowerCase();
+
+    if (lowerQuery.includes("hello") || lowerQuery.includes("hi")) {
+        response = "Hello! How can I help you plan your trip?";
+    } else if (lowerQuery.includes("kashmir")) {
+        response = "Kashmir is known for its stunning landscapes, Dal Lake, and houseboats!";
+    } else if (lowerQuery.includes("best time to visit")) {
+        response = "The best time to travel in India depends on the region, but Oct to March is usually ideal.";
+    } else if (lowerQuery.includes("thank")) {
+        response = "You're welcome! 😊 Safe travels!";
+    } else {
+        response = "Sorry, I didn't quite get that. Can you ask something else about your travel plans?";
+    }
+
+    setTimeout(() => {
+        addMessageToChat("Bot", response);
+    }, 500);
+}
