@@ -94,8 +94,6 @@ For more detailed instructions, refer to the README.md files in the respective d
 ## Contributors
 
 - Deepanshu Sharma
-- Sanskriti Sharma
-- Divyanshi Chauhan
 
 ## License
 
