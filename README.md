@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Travel Blog Project
 
 A full-stack web application for travel enthusiasts to explore destinations in India, chat with other travelers, and share experiences.
@@ -99,3 +100,6 @@ For more detailed instructions, refer to the README.md files in the respective d
 ## License
 
 This project is licensed under the ISC License.
+=======
+# Travel-Blog-Website
+>>>>>>> b908256e19554f7d33e60d4525c706b67e0351f0
